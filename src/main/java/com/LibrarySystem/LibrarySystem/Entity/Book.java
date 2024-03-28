@@ -21,6 +21,9 @@ public class Book {
     @Column
     private String title;
 
+    @Column
+    private String genre;
+
     @ManyToOne
     private Author author;
 

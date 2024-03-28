@@ -48,4 +48,12 @@ public class AuthorService {
         return authorRepository.findAll();
     }
 
+    public Author getAuthorByName(String name){
+        try {
+            return authorRepository.findAuthorByName(name);
+        }catch (AuthorNotFoundException e){
+            throw e;
+        }
+    }
+
 }

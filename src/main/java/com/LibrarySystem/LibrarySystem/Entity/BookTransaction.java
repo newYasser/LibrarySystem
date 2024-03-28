@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name="book_transaction")
@@ -23,8 +24,10 @@ public class BookTransaction {
     @ManyToOne
     private Book book;
 
+    @Column
     private LocalDate borrowDate;
 
+    @Column
     private LocalDate returnDate;
 
 }

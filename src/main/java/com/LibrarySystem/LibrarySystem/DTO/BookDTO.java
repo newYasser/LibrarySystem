@@ -13,6 +13,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class BookDTO {
     private String title;
-    private Author author;
+    private String authorName;
     private String genre;
 }

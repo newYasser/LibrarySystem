@@ -24,7 +24,8 @@ public class BookController {
     private AuthorService authorService;
     @PostMapping("/add-book")
     public ResponseEntity<String> addBook(@RequestBody BookDTO bookDTO){
-        Book book = new Book(null,bookDTO.getTitle(),bookDTO.getGenre(),bookDTO.getAuthor(),null );
+        Author author = authorService.getAuthorByName(bookDTO.getAuthorName());
+        Book book = new Book(null,bookDTO.getTitle(),bookDTO.getGenre(),author,null );
         bookService.addBook(book);
         return ResponseEntity.ok().body("Book added successfully");
     }
@@ -34,7 +35,7 @@ public class BookController {
 
         try {
             Book book = bookService.getBookById(Id);
-            BookDTO bookDTO = new BookDTO(book.getTitle(),book.getAuthor(),book.getGenre());
+            BookDTO bookDTO = new BookDTO(book.getTitle(),book.getAuthor().getName(),book.getGenre());
             return new ResponseEntity<>(bookDTO,HttpStatus.OK);
         }catch (BookNotFoundException e){
             return ResponseEntity.notFound().build();
@@ -57,7 +58,7 @@ public class BookController {
         List<BookDTO>bookDTOS = new ArrayList<>();
 
         for(Book book : books){
-            bookDTOS.add(new BookDTO(book.getTitle(),book.getAuthor(),book.getGenre()));
+            bookDTOS.add(new BookDTO(book.getTitle(),book.getAuthor().getName(),book.getGenre()));
         }
         return new ResponseEntity<>(bookDTOS,HttpStatus.OK);
     }
@@ -68,7 +69,7 @@ public class BookController {
         List<BookDTO>bookDTOS = new ArrayList<>();
 
         for(Book book : books){
-            bookDTOS.add(new BookDTO(book.getTitle(),book.getAuthor(),book.getGenre()));
+            bookDTOS.add(new BookDTO(book.getTitle(),book.getAuthor().getName(),book.getGenre()));
         }
         return new ResponseEntity<>(bookDTOS,HttpStatus.OK);
     }
@@ -80,7 +81,7 @@ public class BookController {
         List<BookDTO>bookDTOS = new ArrayList<>();
 
         for(Book book : books){
-            bookDTOS.add(new BookDTO(book.getTitle(),book.getAuthor(),book.getGenre()));
+            bookDTOS.add(new BookDTO(book.getTitle(),book.getAuthor().getName(),book.getGenre()));
         }
         return new ResponseEntity<>(bookDTOS,HttpStatus.OK);
     }

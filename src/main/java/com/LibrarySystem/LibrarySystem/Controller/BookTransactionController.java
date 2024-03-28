@@ -18,7 +18,7 @@ public class BookTransactionController {
     @Autowired
     private BookTransactionService bookTransactionService;
 
-    @PostMapping("/borrow-book/{id]")
+    @PostMapping("/borrow-book/{id}")
     public HttpStatus borrowBook(@PathVariable Long id){
        try {
            bookTransactionService.borrowBookWithId(id);

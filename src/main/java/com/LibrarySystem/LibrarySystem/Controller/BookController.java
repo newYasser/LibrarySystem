@@ -24,7 +24,7 @@ public class BookController {
     private AuthorService authorService;
     @PostMapping("/add-book")
     public ResponseEntity<String> addBook(@RequestBody BookDTO bookDTO){
-        Author author = authorService.getAuthorByName(bookDTO.getAuthorName());
+        Author author = authorService.addAuthor(new Author(null,bookDTO.getAuthorName(),null));
         Book book = new Book(null,bookDTO.getTitle(),bookDTO.getGenre(),author,null );
         bookService.addBook(book);
         return ResponseEntity.ok().body("Book added successfully");

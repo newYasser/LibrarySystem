@@ -60,9 +60,7 @@ class BookTransactionServiceTest {
         verify(bookTransactionRepository, never()).save(any());
     }
 
-    @Test
-    void returnBook_ReturnsUpdatedBookTransaction() {
-    }
+
 
     @Test
     void returnBook_TransactionNotFound_ReturnsNull() {

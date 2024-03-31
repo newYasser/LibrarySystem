@@ -5,7 +5,7 @@ To run the Library System application locally, follow these steps:
 1. **Clone the Repository**: Clone the project repository from GitHub using the following command:
 
    ```
-   git clone [<https://github.com/newYasser/LibrarySystem.git>]()
+   git clone https://github.com/newYasser/LibrarySystem.git
    ```
 
 2. **Update Database Configuration**: Open the `application.properties` file located in the `src/main/resources` directory and update the following properties to match your MySQL database configuration:
